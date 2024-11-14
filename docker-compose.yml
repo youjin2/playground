@@ -1,0 +1,19 @@
+version: "3"
+services:
+  fun-lab:
+    build: .
+    image: funlab
+    container_name: funlab
+    ports:
+      - "15000:8888"
+      - "5680:5678"
+    volumes:
+      - ./:/opt/project
+    stdin_open: true
+    tty: true
+    environment:
+      JUPYTER_TOKEN: ""
+    command: >
+      bash -c "
+      jupyter notebook --allow-root --ip='*' --port=8888 --NotebookApp.password='' --NotebookApp.token=''
+      "
