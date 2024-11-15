@@ -1,9 +1,9 @@
 version: "3"
 services:
-  fun-lab:
+  playground:
     build: .
-    image: funlab
-    container_name: funlab
+    image: playground
+    container_name: playground
     ports:
       - "15000:8888"
       - "5680:5678"
