@@ -142,7 +142,7 @@ class LevelPayment(BasePayment):
         return result
 
 
-class MorgageLoan:
+class MortgageLoan:
     _loan_type = {
         "level_payment": LevelPayment,
     }
