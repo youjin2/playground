@@ -57,7 +57,7 @@ class LevelPayment(BasePayment):
         A = self._A if loan_amount is None else loan_amount
         d = self._d if duration is None else duration
 
-        r_m = self._r_y / 12
+        r_m = (1 + self._r_y)**(1/12.) - 1
         exp = self._safe_exp(base=1+r_m, exponent=d)
 
         return A * r_m * exp / (exp - 1)
@@ -74,7 +74,7 @@ class LevelPayment(BasePayment):
         A = self._A if loan_amount is None else loan_amount
         d = self._d if duration is None else duration
 
-        r_m = self._r_y / 12
+        r_m = (1 + self._r_y)**(1/12.) - 1
         exp = self._safe_exp(base=1+r_m, exponent=d)
         first_month = A * r_m / (exp - 1)
 
